@@ -60,6 +60,7 @@ const ArticleCard = ({ title, content, imageUrl, category, tags, status }) => {
               <h2>{title}</h2>
               <p>{content}</p>
               <span>category: {category}</span>
+              <strong>tags:</strong>
               <ul>
                 {tags.map((tag, index) => (
                   <li key={`tag${index}`}>{tag}</li>

@@ -28,7 +28,7 @@ const ElencoArticles = () => {
               title={a.title}
               content={a.content}
               imageUrl={a.img}
-              category={''}
+              category={a.category.name}
               tags={[a.tags.map((t) => t.name)]}
               status={a.published}
             />
