@@ -22,7 +22,7 @@ const ArticleCard = ({ title, content, imageUrl, category, tags, status }) => {
               <img src={imageUrl} alt="img" />
             </div>
             <h3>Category: {category}</h3> */}
-            <div class="card">
+            <div className="card">
               {/* <img
                 src={
                   imageUrl === '' ? 'https://picsum.photos/300/200' : imageUrl

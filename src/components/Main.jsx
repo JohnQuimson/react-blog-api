@@ -5,8 +5,10 @@ import ElencoArticles from './ElencoArticles';
 const Main = () => {
   return (
     <>
-      <main>{/* <Form /> */}</main>
-      <ElencoArticles />
+      <main>
+        <Form />
+        <ElencoArticles />
+      </main>
     </>
   );
 };
