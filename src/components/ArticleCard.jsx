@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Article = ({ title, content, imageUrl, category, tags, status }) => {
+const ArticleCard = ({ title, content, imageUrl, category, tags, status }) => {
   return (
     <>
       {status ? (
@@ -22,15 +22,16 @@ const Article = ({ title, content, imageUrl, category, tags, status }) => {
               <img src={imageUrl} alt="img" />
             </div>
             <h3>Category: {category}</h3> */}
-            <div class="card text-bg-dark">
-              <img
+            <div class="card">
+              {/* <img
                 src={
                   imageUrl === '' ? 'https://picsum.photos/300/200' : imageUrl
                 }
                 alt="img"
-              />
+              /> */}
+              <img src={imageUrl} alt={`img-${title}`} />
 
-              <div class="card-img-overlay">
+              {/* <div class="card-img-overlay">
                 <h5 class="card-title">{title == '' ? 'No title' : title}</h5>
                 <p class="card-text">
                   {content == '' ? 'No content' : content}
@@ -54,17 +55,28 @@ const Article = ({ title, content, imageUrl, category, tags, status }) => {
                     <p class="card-text">Category: {category}</p>
                   </>
                 )}
-              </div>
+              </div> */}
+
+              <h2>{title}</h2>
+              <p>{content}</p>
+              <span>category: {category}</span>
+              <ul>
+                {tags.map((tag, index) => (
+                  <li key={`tag${index}`}>{tag}</li>
+                ))}
+              </ul>
             </div>
           </div>
         </>
       ) : (
         <div className="article">
-          <h4>Articolo non visibile</h4>
+          <div className="card">
+            <h4>Articolo non visibile</h4>
+          </div>
         </div>
       )}
     </>
   );
 };
 
-export default Article;
+export default ArticleCard;

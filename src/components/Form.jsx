@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { MdDeleteForever } from 'react-icons/md';
 import { FaRegEdit, FaSave } from 'react-icons/fa';
-import Article from './Article';
+import ArticleCard from './ArticleCard';
 
 const Form = () => {
   const listTags = [
@@ -149,7 +149,7 @@ const Form = () => {
           )}
 
           {articles.map((a, index) => (
-            <Article
+            <ArticleCard
               key={`article${index}`}
               title={a.title}
               content={a.content}
