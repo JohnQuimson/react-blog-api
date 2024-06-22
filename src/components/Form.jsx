@@ -5,7 +5,7 @@ const apiUrl = import.meta.env.VITE_BASE_API_URL;
 export default function Form({ tags, categories, onCreate }) {
   const initialData = {
     title: '',
-    img: '', // Se non stai caricando immagini, puoi rimuovere questo campo
+    img: '',
     content: '',
     categoryId: '',
     tags: [],
@@ -20,18 +20,17 @@ export default function Form({ tags, categories, onCreate }) {
     try {
       console.log('formdata', formData);
 
-      // Assicurati che i dati siano nel formato corretto
       const payload = {
         ...formData,
         categoryId: parseInt(formData.categoryId),
-        tags: formData.tags.map((tag) => parseInt(tag)), // Conversione ID in numeri interi
+        tags: formData.tags.map((tag) => parseInt(tag)),
       };
 
       const res = await axios.post(`${apiUrl}/posts`, payload);
 
       if (res.status < 400) {
         onCreate();
-        setFormData(initialData); // Reimposta i campi del modulo allo stato iniziale
+        setFormData(initialData);
       }
     } catch (error) {
       console.error('Errore durante la creazione del post:', error);
@@ -75,7 +74,7 @@ export default function Form({ tags, categories, onCreate }) {
                           const curr = formData.tags;
                           const newTags = curr.includes(id)
                             ? curr.filter((e) => e !== id)
-                            : [...curr, parseInt(id)]; // Conversione ID in numero intero
+                            : [...curr, parseInt(id)];
                           handleFormField('tags', newTags);
                         }}
                       />
@@ -97,7 +96,7 @@ export default function Form({ tags, categories, onCreate }) {
           <select
             className="input-css"
             value={formData.categoryId}
-            onChange={(e) => handleFormField(objKey, parseInt(e.target.value))} // Conversione ID in numero intero
+            onChange={(e) => handleFormField(objKey, parseInt(e.target.value))}
           >
             <option value="" disabled>
               Seleziona una categoria
